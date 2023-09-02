@@ -26,7 +26,20 @@ const Header = () => {
                     {!auth.user ? (<>
                         <li className="nav-item"><NavLink to="/register" className="nav-link">register</NavLink></li>
                         <li className="nav-item"><NavLink to="/login" className="nav-link">LogIn</NavLink></li></>) : (<>
-                            <li className="nav-item"><NavLink onClick={logOut} to="/login" className="nav-link">Log Out</NavLink></li></>)}
+                            <div className="dropdown text-end d-flex align-items-center">
+                                <NavLink href="#" className="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {auth?.user.name}
+                                </NavLink>
+                                <ul className="dropdown-menu text-small" style={{}}>
+                                    <li><NavLink className="dropdown-item" to={`/dashboard/${auth?.user.role === 1 ? "admin" : "user"}`}>Dashboard.</NavLink></li>
+                                    <li className="nav-item"><NavLink onClick={logOut} to="/login" className="nav-link">Log Out</NavLink>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+
+                        </>)}
                     <li className="nav-item"><NavLink to="/cart" className="nav-link">Cart(0)</NavLink></li>
                 </ul>
             </header>

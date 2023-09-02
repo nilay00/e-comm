@@ -9,6 +9,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
+  const [answer, setAnswer] = useState("");
   const [address, setAddress] = useState("");
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const Register = () => {
           password,
           phone,
           address,
+          answer,
         }
       );
       if (res.data.success) {
@@ -92,6 +94,17 @@ const Register = () => {
                 onChange={(e) => setAddress(e.target.value)}
               />
               <label htmlFor="floatingAddress">Address</label>
+            </div>
+
+            <div className="form-floating my-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="answer"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+              />
+              <label htmlFor="floatingAddress">What is your fav sports</label>
             </div>
 
             <button className="btn btn-primary w-100 py-2" type="submit">
