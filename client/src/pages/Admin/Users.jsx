@@ -1,10 +1,8 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import AdminMenu from './AdminMenu'
-import { useAuth } from '../../context/Auth';
 
-const AdminDashboard = () => {
-    const [auth, setAuth] = useAuth();
+const Users = () => {
     return (
         <Layout>
             <div className="container-fluid">
@@ -13,8 +11,7 @@ const AdminDashboard = () => {
                         <AdminMenu />
                     </div>
                     <div className="col-md-8">
-                        <h1>Name:{auth?.user.name}</h1>
-                        <p><b>email:</b>{auth?.user.email}</p>
+                        <h1>Users</h1>
                     </div>
                 </div>
             </div>
@@ -22,4 +19,4 @@ const AdminDashboard = () => {
     )
 }
 
-export default AdminDashboard
+export default Users
